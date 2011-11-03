@@ -1,5 +1,11 @@
+# revision 23979
+# category Package
+# catalog-ctan undef
+# catalog-date undef
+# catalog-license undef
+# catalog-version undef
 Name:		texlive-ifoddpage
-Version:	20111102
+Version:	20111103
 Release:	1
 Summary:	TeXLive ifoddpage package
 Group:		Publishing
@@ -42,6 +48,7 @@ TeXLive ifoddpage package.
 #- source
 %doc %{_texmfdistdir}/source/latex/ifoddpage/ifoddpage.dtx
 %doc %{_texmfdistdir}/source/latex/ifoddpage/ifoddpage.ins
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -52,3 +59,5 @@ TeXLive ifoddpage package.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
