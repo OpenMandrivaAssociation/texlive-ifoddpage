@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-ifoddpage
 Version:	20111103
-Release:	3
+Release:	4
 Summary:	TeXLive ifoddpage package
 Group:		Publishing
 URL:		http://tug.org/texlive
