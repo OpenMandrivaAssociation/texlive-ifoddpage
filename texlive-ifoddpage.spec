@@ -5,7 +5,7 @@
 # catalog-license undef
 # catalog-version undef
 Name:		texlive-ifoddpage
-Version:	1.1
+Version:	20170414
 Release:	1
 Summary:	TeXLive ifoddpage package
 Group:		Publishing
