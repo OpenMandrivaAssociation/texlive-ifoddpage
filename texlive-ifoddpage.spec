@@ -1,19 +1,13 @@
-# revision 23979
-# category Package
-# catalog-ctan undef
-# catalog-date undef
-# catalog-license undef
-# catalog-version undef
 Name:		texlive-ifoddpage
-Version:	1.1
-Release:	2
+Version:	64967
+Release:	1
 Summary:	TeXLive ifoddpage package
 Group:		Publishing
 URL:		http://tug.org/texlive
 License:	http://www.tug.org/texlive/LICENSE.TL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ifoddpage.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ifoddpage.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ifoddpage.source.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ifoddpage.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ifoddpage.doc.r%{version}.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ifoddpage.source.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -23,42 +17,27 @@ Requires(post):	texlive-kpathsea
 TeXLive ifoddpage package.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
-%{_texmfdistdir}/tex/latex/ifoddpage/ifoddpage.sty
-%doc %{_texmfdistdir}/doc/latex/ifoddpage/README
-%doc %{_texmfdistdir}/doc/latex/ifoddpage/ifoddpage.pdf
+%{_texmfdistdir}/tex/latex/ifoddpage
+%doc %{_texmfdistdir}/doc/latex/ifoddpage
 #- source
-%doc %{_texmfdistdir}/source/latex/ifoddpage/ifoddpage.dtx
-%doc %{_texmfdistdir}/source/latex/ifoddpage/ifoddpage.ins
+%doc %{_texmfdistdir}/source/latex/ifoddpage
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a1 -a2
+%autopatch -p1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 20111103-2
-+ Revision: 752722
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 20111103-1
-+ Revision: 718701
-- texlive-ifoddpage
-- texlive-ifoddpage
-- texlive-ifoddpage
-- texlive-ifoddpage
-
